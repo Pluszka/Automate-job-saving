@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import os
-
+import time
 
 EMAIL = os.environ['lnd_email']
 PASSWORD = os.environ['lnd_password']
@@ -18,3 +18,10 @@ password_space = driver.find_element(By.XPATH, '//*[@id="password"]' )
 password_space.send_keys(PASSWORD)
 log_in = driver.find_element(By.XPATH, '//*[@id="organic-div"]/form/div[3]/button')
 log_in.click()
+
+offers = driver.find_elements(By.CLASS_NAME, "job-flavors__flavor")
+for offer in offers:
+    offer.click()
+    time.sleep(5)
+    button = driver.find_element(By.CLASS_NAME, 'jobs-save-button.artdeco-button.artdeco-button--3.artdeco-button--secondary')
+    button.click()
