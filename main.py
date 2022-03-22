@@ -25,3 +25,5 @@ for offer in offers:
     time.sleep(5)
     button = driver.find_element(By.CLASS_NAME, 'jobs-save-button.artdeco-button.artdeco-button--3.artdeco-button--secondary')
     button.click()
+
+driver.quit()
